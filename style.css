@@ -55,6 +55,9 @@ main {
     font-weight: 900;
 }
 
+/*Gameoutcome page styling*/
+
+
 /*stat display*/
 #stats {
     min-width: 400px;
@@ -71,11 +74,11 @@ main {
     text-align: center;
 }
 
-#stats #restartBtm{
-    
-    margin: 0 auto;
+#stats section p{
+    font-size: 2rem;
 }
 
 #stats section span{
     font-size: 2rem;
 }
+
