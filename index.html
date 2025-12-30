@@ -10,57 +10,61 @@
     <body>
         <main>
             <!--playing field-->
-            <div id="playing-field">
-                <div id="field-one" class="field">
-                    <div id="x-field-one" class="player"><i class="fa-solid fa-x"></i></div>
-                    <div id="o-field-one" class="computer"><i class="fa-solid fa-o"></i></div>
+            <div id="gameContainer">
+                <div cellIndex="0" class="cell">
+                    <i id="x-field-one" class="fa-solid fa-x"></i>
+                    <i id="o-field-one" class="fa-solid fa-o"></i>
                 </div>
-                <div id="field-two" class="field">
-                    <div id="x-field-two" class="player"></div>
-                    <div id="o-field-two" class="computer"></div>
+                <div cellIndex="1" class="cell">
+                    <i id="x-field-two" class="fa-solid fa-x"></i>
+                    <i id="o-field-two" class="fa-solid fa-o"></i>
                 </div>
-                <div id="field-three" class="field">
-                    <div id="x-field-three" class="player"></div>
-                    <div id="o-field-three" class="computer"></div>
+                <div cellIndex="2" class="cell">
+                    <i id="x-field-three" class="fa-solid fa-x"></i>
+                    <i id="o-field-three" class="fa-solid fa-o"></i>
                 </div>
-                <div id="field-four" class="field">
-                    <div id="x-field-four" class="player"></div>
-                    <div id="o-field-four" class="computer"></div>
+                <div cellIndex="3" class="cell">
+                    <i id="x-field-four" class="fa-solid fa-x"></i>
+                    <i id="o-field-four" class="fa-solid fa-o"></i>
                 </div>
-                <div id="field-five" class="field">
-                    <div id="x-field-five" class="player"></div>
-                    <div id="o-field-five" class="computer"></div>
+                <div cellIndex="4" class="cell">
+                    <i id="x-field-five" class="fa-solid fa-x"></i>
+                    <i id="o-field-five" class="fa-solid fa-o"></i>
                 </div>
-                <div id="field-six" class="field">
-                    <div id="x-field-six" class="player"></div>
-                    <div id="o-field-six" class="computer"></div>
+                <div cellIndex="5" class="cell">
+                    <i id="x-field-six" class="fa-solid fa-x"></i>
+                    <i id="o-field-six" class="fa-solid fa-o"></i>
                 </div>
-                <div id="field-seven" class="field">
-                    <div id="x-field-seven" class="player"></div>
-                    <div id="o-field-seven" class="computer"></div>
+                <div cellIndex="6" class="cell">
+                    <i id="x-field-seven" class="fa-solid fa-x"></i>
+                    <i id="o-field-seven" class="fa-solid fa-o"></i>
                 </div>
-                <div id="field-eight" class="field">
-                    <div id="x-field-eight" class="player"></div>
-                    <div id="o-field-eight" class="computer"></div>
+                <div cellIndex="7" class="cell">
+                    <i id="x-field-eight" class="fa-solid fa-x"></i>
+                    <i id="o-field-eight" class="fa-solid fa-o"></i>
                 </div>
-                <div id="field-nine" class="field">
-                    <div id="x-field-nine" class="player"></div>
-                    <div id="o-field-nine" class="computer"></div>
+                <div cellIndex="8" class="cell">
+                    <i id="x-field-nine" class="fa-solid fa-x"></i>
+                    <i id="o-field-nine" class="fa-solid fa-o"></i>
                 </div>
             </div>
             <!--Stats-->
             <div id="stats">
-                <section id="player-wins">
-                    <span>Player:</span>
+                <button id="restartBtn">Restart</button>
+                <section>
+                    <span>Current player: <span id="current-player"></span></span>
                 </section>
-                <section id="ties">
-                    <span>Tie:</span>
+                <section>
+                    <span>Player: <span id="player-wins"></span></span>
                 </section>
-                <section id="computer-wins">
-                    <span>Computer:</span>
+                <section>
+                    <span>Tie: <span id="ties"></span></span>
+                </section>
+                <section>
+                    <span>Computer: <span id="computer-wins"></span></span>
                 </section>
             </div>
         </main>
-        <script href="script/main.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>
