@@ -1,5 +1,9 @@
 const cells = document.querySelectorAll(".cell");
+
+const outcomeWindow = document.querySelector("#gameoutcome")
+const winner = document.querySelector("#winner")
 const restartBtn = document.querySelector("#restartBtn");
+
 const statusText = document.querySelector("#current-player");
 const playerWins = document.querySelector("#player-wins");
 const ties = document.querySelector("#ties");
@@ -108,16 +112,16 @@ function checkWinner() {
         statusText.textContent = `${currentPlayer.toUpperCase()} Wins!`;
         if (currentPlayer == "x") {
             playerPoints++;
-            playerWins.textContent = `${playerPoints}`;
+            updatePoints;
         } else {
             computerPoints++;
-            computerWins.textContent = `${computerPoints}`;
+            updatePoints();
         }
         running = false;
     } else if (!options.includes("")) {
         statusText.textContent = `Tie!`;
         tiePoints++;
-        ties.textContent = `${tiePoints}`;
+        updatePoints();
         running = false;
     } else {
         changePlayer();
@@ -125,6 +129,20 @@ function checkWinner() {
             setTimeout(computerMove, 500);
         }
     }
+}
+
+function showGameoutcome() {
+    outcomeWindow.style.display = "block";
+}
+
+function hideGameoutcome() {
+    outcomeWindow.style.display = "none";
+}
+
+function updatePoints() {
+    playerWins.textContent = `${playerPoints}`;
+    ties.textContent = `${tiePoints}`;
+    computerWins.textContent = `${computerPoints}`;
 }
 
 function restartGame() {
