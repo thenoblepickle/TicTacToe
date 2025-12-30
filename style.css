@@ -32,20 +32,23 @@ body {
 main {
     display: grid;
     grid-template-areas: "game stats";
-
+    align-items: center;
+    justify-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 /*playing field*/
 #gameContainer {
-    grid-area: "game";
-    width: clamp(300px, 80vw, 600px);
+    grid-area: game;
+    width: clamp(400px, 90vw, 800px);
     aspect-ratio: 1 / 1; 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    margin: 40px auto;
+    margin-top: 40px;
     background-color: var(--field-color);
-    gap: 2px;
+    gap: 4px;
     border: 2px solid var(--field-color);
 }
 
@@ -62,6 +65,10 @@ main {
 
 .cell:hover {
     background-color: #242B35;
+}
+
+.cell i {
+    font-size: clamp(5rem, 15vw, 10rem);
 }
 
 /* X and O styling*/
@@ -144,7 +151,7 @@ main {
 
 /*stat display*/
 #stats {
-    grid-area: "stats";
+    grid-area: stats;
     min-width: 400px;
     margin-top: 40px;
 }
