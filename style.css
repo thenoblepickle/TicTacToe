@@ -20,6 +20,13 @@ body {
     background-color: var(--bg-color);
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*playing field*/
 #playing-field {
     width: clamp(300px, 80vw, 600px);
     aspect-ratio: 1 / 1; 
@@ -27,7 +34,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 4px;
-    margin: 40px auto;
+    margin-top: 40px;
     background-color: var(--field-color);
 }
 
@@ -37,3 +44,19 @@ body {
     background-color: var(--bg-color);
 }
 
+/* X and O styling*/
+
+
+/*stat display*/
+#stats {
+    min-width: 400px;
+    margin-top: 40px;
+}
+
+#stats section{
+    text-align: center;
+}
+
+#stats section span{
+    font-size: 2rem;
+}
