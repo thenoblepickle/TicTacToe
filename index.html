@@ -12,51 +12,46 @@
             <!--playing field-->
             <div id="gameContainer">
                 <div cellIndex="0" class="cell">
-                    <i id="x-field-one" class="fa-solid fa-x"></i>
-                    <i id="o-field-one" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
                 <div cellIndex="1" class="cell">
-                    <i id="x-field-two" class="fa-solid fa-x"></i>
-                    <i id="o-field-two" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
                 <div cellIndex="2" class="cell">
-                    <i id="x-field-three" class="fa-solid fa-x"></i>
-                    <i id="o-field-three" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
                 <div cellIndex="3" class="cell">
-                    <i id="x-field-four" class="fa-solid fa-x"></i>
-                    <i id="o-field-four" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
                 <div cellIndex="4" class="cell">
-                    <i id="x-field-five" class="fa-solid fa-x"></i>
-                    <i id="o-field-five" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
                 <div cellIndex="5" class="cell">
-                    <i id="x-field-six" class="fa-solid fa-x"></i>
-                    <i id="o-field-six" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
                 <div cellIndex="6" class="cell">
-                    <i id="x-field-seven" class="fa-solid fa-x"></i>
-                    <i id="o-field-seven" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
                 <div cellIndex="7" class="cell">
-                    <i id="x-field-eight" class="fa-solid fa-x"></i>
-                    <i id="o-field-eight" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
                 <div cellIndex="8" class="cell">
-                    <i id="x-field-nine" class="fa-solid fa-x"></i>
-                    <i id="o-field-nine" class="fa-solid fa-o"></i>
+                    <i class="fa-solid fa-x"></i>
+                    <i class="fa-solid fa-o"></i>
                 </div>
-            </div>
-             <div id="gameoutcome">
-                    <p></p>
-                    <span id="winner"></span><br>
-                    <button id="restartBtn">Again</button>
             </div>
             <!--Stats-->
             <div id="stats">
                 <section>
-                    <p><span id="current-player"></span><p>
+                    <p id="statusText"><span id="player-icon"></span></p>
                 </section>
                 <section>
                     <p>Player: <span id="player-wins"></span></p>
@@ -67,6 +62,11 @@
                 <section>
                     <p>Computer: <span id="computer-wins"></span></p>
                 </section>
+            </div>
+            <div id="dim-overlay"></div>
+            <div id="gameoutcome">
+                    <h2 id="winner"><span id="winner-icon"></span></h2>
+                    <button id="restartBtn">Again</button>
             </div>
         </main>
         <script src="main.js"></script>
