@@ -1,5 +1,13 @@
 const cells = document.querySelectorAll(".cell");
+
+const playerIconContainer = document.querySelector("#player-icon");
+const winnerIconContainer = document.querySelector("#winner-icon")
+
+const dimWindow = document.querySelector("#dim-overlay")
+const outcomeWindow = document.querySelector("#gameoutcome")
+const winner = document.querySelector("#winner")
 const restartBtn = document.querySelector("#restartBtn");
+
 const statusText = document.querySelector("#current-player");
 const playerWins = document.querySelector("#player-wins");
 const ties = document.querySelector("#ties");
@@ -28,7 +36,7 @@ initializeGame();
 function initializeGame() {
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     restartBtn.addEventListener("click", restartGame);
-    statusText.textContent = `${currentPlayer}'s turn`;
+    updateStatusIcon();
     running = true;
 }
 
@@ -51,7 +59,7 @@ function updateCell(cell, index) {
 
 function changePlayer() {
     currentPlayer = (currentPlayer == "x") ? "o" : "x";
-    statusText.textContent = `${currentPlayer}'s turn`;
+    updateStatusIcon();
 }
 
 function computerMove() {
@@ -105,19 +113,24 @@ function checkWinner() {
     }
 
     if (roundWon) {
-        statusText.textContent = `${currentPlayer.toUpperCase()} Wins!`;
+        winner.innerHTML = `Winner: <span id="winner-icon"></span>`;
+        updateWinnerIcon();
         if (currentPlayer == "x") {
             playerPoints++;
-            playerWins.textContent = `${playerPoints}`;
+            updatePoints();
+            showGameoutcome();
         } else {
             computerPoints++;
-            computerWins.textContent = `${computerPoints}`;
+            updatePoints();
+            showGameoutcome();
         }
         running = false;
     } else if (!options.includes("")) {
-        statusText.textContent = `Tie!`;
+        winner.textContent = `Tie!`;
+        winnerIconContainer.innerHTML = "";
         tiePoints++;
-        ties.textContent = `${tiePoints}`;
+        updatePoints();
+        showGameoutcome();
         running = false;
     } else {
         changePlayer();
@@ -127,13 +140,49 @@ function checkWinner() {
     }
 }
 
+function showGameoutcome() {
+    outcomeWindow.style.display = "block";
+    dimWindow.style.display = "block";
+}
+
+function hideGameoutcome() {
+    outcomeWindow.style.display = "none";
+    dimWindow.style.display = "none";
+}
+
+function updatePoints() {
+    playerWins.textContent = `${playerPoints}`;
+    ties.textContent = `${tiePoints}`;
+    computerWins.textContent = `${computerPoints}`;
+}
+
+function updateStatusIcon() {
+    playerIconContainer.innerHTML = "";
+    const icon = document.createElement("i");
+    icon.classList.add("fa-solid", `fa-${currentPlayer}`);
+    playerIconContainer.appendChild(icon);
+
+    const text = document.createTextNode("'s Turn");
+    playerIconContainer.appendChild(text);
+}
+
+function updateWinnerIcon() {
+    const currentWinnerIcon = document.querySelector("#winner-icon");
+    if(!currentWinnerIcon) return;
+    currentWinnerIcon.innerHTML = "";
+    const icon = document.createElement("i");
+    icon.classList.add("fa-solid", `fa-${currentPlayer}`);
+    currentWinnerIcon.appendChild(icon);
+}
+
 function restartGame() {
     currentPlayer = "x";
     options = ["", "", "", "", "", "", "", "", ""];
-    statusText.textContent = `${currentPlayer}'s turn`;
+    updateStatusIcon();
     cells.forEach(cell => {
         const icons = cell.querySelectorAll('i');
         icons.forEach(icon => icon.style.display = "none");
     });
+    hideGameoutcome();
     running = true;
 }
