@@ -5,6 +5,14 @@ const playerWins = document.querySelector("#player-wins");
 const ties = document.querySelector("#ties");
 const computerWins = document.querySelector("#computer-wins");
 
+let playerPoints = 0;
+let tiePoints = 0;
+let computerPoints = 0;
+
+playerWins.textContent = `${playerPoints}`;
+ties.textContent = `${tiePoints}`;
+computerWins.textContent = `${computerPoints}`;
+
 const winConditions = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8],
     [0, 3, 6], [1, 4, 7], [2, 5, 8],
@@ -49,25 +57,42 @@ function changePlayer() {
 function computerMove() {
     if (!running) return;
 
-    let availableIndices = [];
-    options.forEach((val, index) => {
-        if (val === "") availableIndices.push(index);
-    });
+    let move = findBestMove("o");
+    if (move === null) move = findBestMove("x");
 
-    if (availableIndices.length > 0) {
-        const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
-        const targetCell = document.querySelector(`.cell[cellIndex="${randomIndex}"]`);
-        
-        updateCell(targetCell, randomIndex);
+    if (move === null && options[4] === "") {
+        move = 4;
+    }
+
+    if (move === null) {
+        let availableIndices = options.map((v, i) => v === "" ? i : null).filter(v => v !== null);
+        move = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+    }
+
+    if (move !== null) {
+        const targetCell = document.querySelector(`.cell[cellIndex="${move}"]`);
+        updateCell(targetCell, move);
         checkWinner();
     }
+}
+
+function findBestMove(symbol) {
+    for (let condition of winConditions) {
+        let a = options[condition[0]];
+        let b = options[condition[1]];
+        let c = options[condition[2]];
+
+        if (a === symbol && b === symbol && c === "") return condition[2];
+        if (a === symbol && c === symbol && b === "") return condition[1];
+        if (b === symbol && c === symbol && a === "") return condition[0];
+    }
+    return null;
 }
 
 function checkWinner() {
     let roundWon = false;
 
-    for (let i = 0; i < winConditions.length; i++) {
-        const condition = winConditions[i];
+    for (let condition of winConditions) {
         const cellA = options[condition[0]];
         const cellB = options[condition[1]];
         const cellC = options[condition[2]];
@@ -81,9 +106,18 @@ function checkWinner() {
 
     if (roundWon) {
         statusText.textContent = `${currentPlayer.toUpperCase()} Wins!`;
+        if (currentPlayer == "x") {
+            playerPoints++;
+            playerWins.textContent = `${playerPoints}`;
+        } else {
+            computerPoints++;
+            computerWins.textContent = `${computerPoints}`;
+        }
         running = false;
     } else if (!options.includes("")) {
         statusText.textContent = `Tie!`;
+        tiePoints++;
+        ties.textContent = `${tiePoints}`;
         running = false;
     } else {
         changePlayer();
