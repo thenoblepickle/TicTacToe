@@ -1,11 +1,11 @@
 :root {
-    --bg-color: #1A1C1A;       /* Wet Earth */
-    --field-color: #4A4E46;    /* Lichen Grey */
-    --cell-color: #242622;     /* Dark Slate */
-    --text-color: #C2C5BB;     /* Morning Fog */
+    --bg-color: #1A1C1A;
+    --field-color: #4A4E46;
+    --cell-color: #242622;
+    --text-color: #C2C5BB;
     --dim-color: rgba(20, 22, 20, 0.9);
-    --player-x: #FFFFFF;       /* Frost */
-    --player-o: #8A9A5B;       /* Sage Green */
+    --player-x: #FFFFFF;
+    --player-o: #8A9A5B;
     --outcome-bg: #242622;
     --outcome-border: #8A9A5B;
     
@@ -168,7 +168,7 @@ main {
 }
 
 /*Media Queries*/
-/* --- TABLET VIEW (Laptops & iPads) --- */
+/* Tablet */
 @media screen and (max-width: 1024px) {
     main {
         grid-template-areas: 
