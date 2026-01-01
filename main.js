@@ -8,7 +8,7 @@ const outcomeWindow = document.querySelector("#gameoutcome")
 const winner = document.querySelector("#winner")
 const restartBtn = document.querySelector("#restartBtn");
 
-const statusText = document.querySelector("#current-player");
+const statusText = document.querySelector("#statusText");
 const playerWins = document.querySelector("#player-wins");
 const ties = document.querySelector("#ties");
 const computerWins = document.querySelector("#computer-wins");
@@ -71,7 +71,7 @@ function computerMove() {
     if (move === null && options[4] === "") {
         move = 4;
     }
-
+ 
     if (move === null) {
         let availableIndices = options.map((v, i) => v === "" ? i : null).filter(v => v !== null);
         move = availableIndices[Math.floor(Math.random() * availableIndices.length)];
